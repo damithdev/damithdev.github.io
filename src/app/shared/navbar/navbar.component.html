@@ -1,0 +1,143 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/']" data-toggle="tooltip" title="Go to Home">
+      <img src="./assets/img/brand/damithdev_logo_foreground_light.png">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/']" data-toggle="tooltip" title="Go to Home">
+              <img src="./assets/img/brand/damithdev_logo_foreground_dark.png" class="invert-my-img">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Latest</span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+              <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="ni ni-money-coins"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">rates.lk</h6>
+                  <p class="description d-none d-md-inline-block mb-0">Get to know the latest Financial and Billing rates of Sri Lanka</p>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                  <i class="ni ni-building"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">effice.io</h6>
+                  <p class="description d-none d-md-inline-block mb-0">Visit our Company Website to get to know more about our collaborative work</p>
+                </div>
+              </a>
+              <!-- <a routerLinkActive="active" [routerLink]="['documentation/alerts']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                  <i class="ni ni-ui-04"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h5 class="heading text-warning mb-md-1">Components</h5>
+                  <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                </div>
+              </a> -->
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">Go to</span>
+          </a>
+          <div class="dropdown-menu">
+            <a [routerLink]="['/user-profile']" data-toggle="tooltip" title="View my personal profile" class="dropdown-item">Profile</a>
+           <a [routerLink]="['/concepts']" data-toggle="tooltip" title="Design Concepts Visualized" class="dropdown-item">Concepts</a>
+            <a [routerLink]="['/creative']" data-toggle="tooltip" title="Creative Hall of Fame" class="dropdown-item">Creative</a>
+            <a [routerLink]="['/projects']" data-toggle="tooltip" title="Projects Archive" class="dropdown-item">Projects</a>
+            <a href="https://rates.lk" data-toggle="tooltip" title="Visit to get the latest financial rates of sri Lanka" class="dropdown-item">rates.lk</a>
+            <a href="https://effice.io" data-toggle="tooltip" title="Visit our team website" class="dropdown-item">effice.io</a>
+            
+            <!-- <a [routerLink]="['/login']" class="dropdown-item">Login</a> -->
+          </div>
+        </li>
+        <li class="nav-item hideOnMobile">
+          <a class="nav-link nav-link-icon" href="https://blog.damith.dev/" target="_blank" data-toggle="tooltip" title="View Latest Blog Articles">
+            <span class="nav-link-inner--text">Blog</span>
+          </a>
+        </li>
+        <li class="nav-item hideOnMobile">
+          <a class="nav-link nav-link-icon" href="#CONTACT_SEC" data-toggle="tooltip" title="View Latest Blog Articles">
+            <span class="nav-link-inner--text">Contact</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto hideOnNotMobile">
+        <li class="nav-item ">
+          <a class="nav-link nav-link-icon" href="https://blog.damith.dev" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+            <i class="fa fa-rss"></i>
+            <span class="nav-link-inner--text d-lg-none">Blog</span>
+          </a>
+        </li>
+        </ul>
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto hideOnNotMobile">
+          <li class="nav-item ">
+            <a class="nav-link nav-link-icon" href="#CONTACT_SEC" data-toggle="tooltip" title="Like us on Facebook">
+              <i class="fa fa-comment"></i>
+              <span class="nav-link-inner--text d-lg-none">Contact</span>
+            </a>
+          </li></ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item ">
+          <a class="nav-link nav-link-icon" href="https://www.facebook.com/damith.lk" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+            <i class="fa fa-facebook-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Facebook</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.instagram.com/damith.dev/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+            <i class="fa fa-instagram"></i>
+            <span class="nav-link-inner--text d-lg-none">Instagram</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://twitter.com/damith_dev" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+            <i class="fa fa-twitter-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Twitter</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://github.com/damithdev" target="_blank" data-toggle="tooltip" title="Star us on Github">
+            <i class="fa fa-github"></i>
+            <span class="nav-link-inner--text d-lg-none">Github</span>
+          </a>
+        </li>
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a href="./assets/docs/damith_dev_resume.pdf" target="_blank" class="btn btn-neutral btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-cloud-download mr-2"></i>
+            </span>
+            <span class="nav-link-inner--text">Resume</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

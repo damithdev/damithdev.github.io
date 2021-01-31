@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    scroll-behavior: smooth;
+}
+
+invert-my-img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+@media screen and (max-width: 994px){
+    .hideOnMobile {
+    display: none !important;
+    }
+    }
+
+@media screen and (min-width: 992px){
+    .hideOnNotMobile {
+    display: none !important;
+    }
+    }
