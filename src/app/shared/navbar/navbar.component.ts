@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
         }
     }
 
-    scroll(el: HTMLElement) {
-        el.scrollIntoView();
+    forceNavigate(name: string) {
+        this.router.navigate(['/'], { fragment: name });
     }
 }

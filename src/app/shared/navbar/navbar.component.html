@@ -84,7 +84,7 @@
           </a>
         </li>
         <li class="nav-item hideOnMobile">
-          <a class="nav-link nav-link-icon" href="#CONTACT_SEC" data-toggle="tooltip" title="View Latest Blog Articles">
+          <a class="nav-link nav-link-icon" [routerLink]="['/#CONTACT_SEC']" (click)="forceNavigate('CONTACT_SEC')" data-toggle="tooltip" title="View Latest Blog Articles">
             <span class="nav-link-inner--text">Contact</span>
           </a>
         </li>
@@ -99,7 +99,7 @@
         </ul>
         <ul class="navbar-nav align-items-lg-center ml-lg-auto hideOnNotMobile">
           <li class="nav-item ">
-            <a class="nav-link nav-link-icon" href="#CONTACT_SEC" data-toggle="tooltip" title="Like us on Facebook">
+            <a class="nav-link nav-link-icon" [routerLink]="['/#CONTACT_SEC']" (click)="forceNavigate('CONTACT_SEC')"  data-toggle="tooltip" title="Like us on Facebook">
               <i class="fa fa-comment"></i>
               <span class="nav-link-inner--text d-lg-none">Contact</span>
             </a>
