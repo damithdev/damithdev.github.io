@@ -17,6 +17,8 @@ var navbarHeight = 0;
 })
 export class AppComponent implements OnInit {
     private _router: Subscription;
+    public loading = false;
+
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     @HostListener('window:scroll', ['$event'])
@@ -72,5 +74,9 @@ export class AppComponent implements OnInit {
           });
       });
       this.hasScrolled();
+    }
+
+    loadingChangedHandler(loading: boolean){
+        this.loading = loading;
     }
 }

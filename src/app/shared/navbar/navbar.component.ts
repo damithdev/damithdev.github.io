@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+
+import { DataService } from 'src/app/data.service';
+
 
 @Component({
     selector: 'app-navbar',
@@ -11,8 +14,10 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
+    
+    @Output() loadingChanged: EventEmitter<boolean> = new EventEmitter()
 
-    constructor(public location: Location, private router: Router) {
+    constructor(public location: Location, private router: Router,private dataService:DataService) {
     }
 
     ngOnInit() {
@@ -57,4 +62,23 @@ export class NavbarComponent implements OnInit {
     forceNavigate(name: string) {
         this.router.navigate(['/'], { fragment: name });
     }
+
+    openDoc() {
+        var pdfUrl = "https://docs.google.com/document/d/1X9s9-qHoWMtTHqilqnJoUekAzGLyRYR81NHyAow579E/export?format=pdf";
+        // var startPage = 0;
+        // window.open(pdfUrl + '#page=' + startPage, '_blank', '');
+        this.loadingChanged.emit(true);
+
+        this.dataService.downloadPDF(pdfUrl).subscribe(res => {
+            const fileURL = URL.createObjectURL(res);
+            this.loadingChanged.emit(false);
+            window.open(fileURL, '_blank');
+            
+        },err => {
+            this.loadingChanged.emit(false);
+
+        });
+    }
+
+
 }

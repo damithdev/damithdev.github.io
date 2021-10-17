@@ -26,13 +26,13 @@
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
         <li class="nav-item dropdown">
-          <a class="nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
+          <a class="nav-link nav-link-icon nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text">Latest</span>
           </a>
           <div class="dropdown-menu-xl dropdown-menu" >
             <div class="dropdown-menu-inner">
-              <a routerLinkActive="active" [routerLink]="['documentation/tutorial']" class="media d-flex align-items-center">
+              <a href="https://rates.lk/" target="_blank" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                   <i class="ni ni-money-coins"></i>
                 </div>
@@ -41,7 +41,7 @@
                   <p class="description d-none d-md-inline-block mb-0">Get to know the latest Financial and Billing rates of Sri Lanka</p>
                 </div>
               </a>
-              <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
+              <!-- <a routerLinkActive="active" [routerLink]="['documentation/colors']" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
                   <i class="ni ni-building"></i>
                 </div>
@@ -49,7 +49,7 @@
                   <h6 class="heading text-primary mb-md-1">effice.io</h6>
                   <p class="description d-none d-md-inline-block mb-0">Visit our Company Website to get to know more about our collaborative work</p>
                 </div>
-              </a>
+              </a> -->
               <!-- <a routerLinkActive="active" [routerLink]="['documentation/alerts']" class="media d-flex align-items-center">
                 <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
                   <i class="ni ni-ui-04"></i>
@@ -63,7 +63,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
+          <a class="nav-link nav-link-icon nav-link no-caret hideOnMobile" data-toggle="dropdown" role="button">
             <i class="ni ni-collection d-lg-none"></i>
             <span class="nav-link-inner--text">Go to</span>
           </a>
@@ -72,8 +72,6 @@
            <a [routerLink]="['/concepts']" data-toggle="tooltip" title="Design Concepts Visualized" class="dropdown-item">Concepts</a>
             <a [routerLink]="['/creative']" data-toggle="tooltip" title="Creative Hall of Fame" class="dropdown-item">Creative</a>
             <a [routerLink]="['/projects']" data-toggle="tooltip" title="Projects Archive" class="dropdown-item">Projects</a>
-            <a href="https://rates.lk" data-toggle="tooltip" title="Visit to get the latest financial rates of sri Lanka" class="dropdown-item">rates.lk</a>
-            <a href="https://effice.io" data-toggle="tooltip" title="Visit our team website" class="dropdown-item">effice.io</a>
             
             <!-- <a [routerLink]="['/login']" class="dropdown-item">Login</a> -->
           </div>
@@ -130,12 +128,12 @@
           </a>
         </li>
         <li class="nav-item d-none d-lg-block ml-lg-4">
-          <a href="./assets/docs/damith_dev_resume.pdf" target="_blank" class="btn btn-neutral btn-icon">
+          <button  (click)="openDoc()" class="btn btn-neutral btn-icon">
             <span class="btn-inner--icon">
               <i class="fa fa-cloud-download mr-2"></i>
             </span>
             <span class="nav-link-inner--text">Resume</span>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
