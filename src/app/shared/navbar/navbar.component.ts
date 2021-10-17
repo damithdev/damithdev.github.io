@@ -3,6 +3,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 
 import { DataService } from 'src/app/data.service';
+import { SharedService } from '../Shared.service';
 
 
 @Component({
@@ -15,9 +16,7 @@ export class NavbarComponent implements OnInit {
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
     
-    @Output() loadingChanged: EventEmitter<boolean> = new EventEmitter()
-
-    constructor(public location: Location, private router: Router,private dataService:DataService) {
+    constructor(public location: Location, private router: Router,private dataService:DataService,private sharedService:SharedService) {
     }
 
     ngOnInit() {
@@ -67,15 +66,15 @@ export class NavbarComponent implements OnInit {
         var pdfUrl = "https://docs.google.com/document/d/1X9s9-qHoWMtTHqilqnJoUekAzGLyRYR81NHyAow579E/export?format=pdf";
         // var startPage = 0;
         // window.open(pdfUrl + '#page=' + startPage, '_blank', '');
-        this.loadingChanged.emit(true);
+        this.sharedService.toggleLoading.next(true);
 
         this.dataService.downloadPDF(pdfUrl).subscribe(res => {
             const fileURL = URL.createObjectURL(res);
-            this.loadingChanged.emit(false);
+            this.sharedService.toggleLoading.next(false);
             window.open(fileURL, '_blank');
             
         },err => {
-            this.loadingChanged.emit(false);
+            this.sharedService.toggleLoading.next(false);
 
         });
     }

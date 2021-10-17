@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-landing',
@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LandingComponent implements OnInit {
-  focus: any;
-  focus1: any;
 
   constructor() { }
 
   ngOnInit() {}
 
-
+  loadingChangedHandler(loading: boolean){
+}
 
 }

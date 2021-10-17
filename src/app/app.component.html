@@ -1,5 +1,5 @@
 <div #customLoadingTemplate>
-    <app-navbar (loadingChanged)="loadingChangedHandler($event)"></app-navbar>
+    <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px',fullScreenBackdrop : true }" [template]="customLoadingTemplate">Preparing</ngx-loading>

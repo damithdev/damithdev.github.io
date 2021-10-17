@@ -21,6 +21,10 @@ import { ViewportScroller } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
+import { ContactEmailComponent } from './landing/contact-email/contact-email.component';
+import { ReactiveFormsModule } from '@angular/forms';  
+import { ContactService } from './landing/contact-email/contact.service';
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -32,6 +36,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    ContactEmailComponent
     
   ],
   imports: [
@@ -42,9 +47,10 @@ import { NgxLoadingModule } from 'ngx-loading';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({primaryColour: '#ffffff'}),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ContactService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

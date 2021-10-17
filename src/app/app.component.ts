@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild, HostListener, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/common';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { SharedService } from './shared/Shared.service';
 
 var didScroll;
 var lastScrollTop = 0;
@@ -15,12 +16,16 @@ var navbarHeight = 0;
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnDestroy {
     private _router: Subscription;
     public loading = false;
 
 
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location,private sharedService:SharedService) {}
+
+    
+    loadingToggleSubscription : Subscription;
+    
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
@@ -74,9 +79,16 @@ export class AppComponent implements OnInit {
           });
       });
       this.hasScrolled();
+
+      this.loadingToggleSubscription = this.sharedService.getToggleLoading().subscribe(data => this.loadingChangedHandler(data))
+    }
+
+    ngOnDestroy(): void {
+        this.loadingToggleSubscription.unsubscribe();
     }
 
     loadingChangedHandler(loading: boolean){
+        console.log("loading:"+loading)
         this.loading = loading;
     }
 }
